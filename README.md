@@ -9,7 +9,7 @@ This does not include any directives that are well established and have DRCs, su
 - Bus Annotations
 - - Traces should be routed together, with similar lengths and spacing
 - - Differential pairs are a subset of a bus annotation
-- - A bus can contain differential pairs 
+- - A bus can contain differential pairs
 - Phase Annotations
 - - Route these sets of traces before that set of traces
 - Power
@@ -21,6 +21,7 @@ This does not include any directives that are well established and have DRCs, su
 - Pours and Layer Purpose
 - - Convey a layer is a pour for a certain net
 - - Convey a section or polygon within a layer is a pour for a certain net
+- - Convey that a pour can be "broken" by signal traces
 - Fanout
 - - Convey that a chip should be fanned out
 
