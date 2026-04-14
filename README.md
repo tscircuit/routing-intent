@@ -10,6 +10,9 @@ This does not include any directives that are well established and have DRCs, su
 - - Traces should be routed together, with similar lengths and spacing
 - - Differential pairs are a subset of a bus annotation
 - - A bus can contain differential pairs
+- Geometric Bus and Trace Hints
+- - A bus should go near or avoid an area/layer
+- - A trace must pass through a point/layer
 - Phase Annotations
 - - Route these sets of traces before that set of traces
 - Power
