@@ -33,12 +33,15 @@ This does not include any directives that are well established and have DRCs, su
 
 ### Overview
 
-Routing intent is placed on objects as JSON properties. A simple selector syntax can be used to
-refer to pins on a chip via a string e.g. `U1.pin3`. These properties can be integrated
+Routing intent is placed on objects as JSON properties. These properties can be integrated
 into XML (for tscircuit), JSON (for Simple Route JSON or [Circuit JSON](https://github.com/tscircuit/circuit-json)) or custom DSLs and
 libraries. All concepts are portable to different DSLs or libraries.
 
 Netlist information is captured separately and is not relevant to routing intent.
+
+A simple illustrative selector syntax can be used to refer to pins on a chip via a string e.g. `U1.pin3`. Aliases
+are also acceptable e.g. `"U1.UART0_TX"`. This is recommended syntax, but IDs or other references can
+be used. This syntax is recommended to make algorithm debugging simpler and provide hinting for LLMs.
 
 ### Bus Annotation
 
@@ -48,8 +51,9 @@ Netlist information is captured separately and is not relevant to routing intent
 {
   "buses": [
     {
+      "name": "U1_SPI",
       // Can be non-exhaustive, the pin implies the trace or net 
-      "pins": ["U1.pin3", "U1.pin4", "U1.pin5", "U1.pin6"]
+      "pins": ["U1.MOSI", "U1.MISO", "U1.GPIO1", "U1.GPIO2"]
     }
   ]
 }
@@ -57,9 +61,26 @@ Netlist information is captured separately and is not relevant to routing intent
 
 #### Differential Pairs
 
-```json
+Differential pair pins are specified as pairs. Often a "bus" is just a single differential pair. Often buses are
+composed a several sets of differential pairs. Again, we use a single pin reference rather than providing both pins.
 
+```json
+{
+  "buses": [
+    {
+      "name": "U1_USB",
+      "differentialPairPins": [
+        ["U1.USB1_DP", "U1.USB1_DM"],
+        ["U1.USB2_DP", "U1.USB2_DM"]
+      ],
+    }
+  ]
+}
 ```
+
+
+
+
 
 
 
