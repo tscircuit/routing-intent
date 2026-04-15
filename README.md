@@ -31,4 +31,37 @@ This does not include any directives that are well established and have DRCs, su
 
 ## JSON Representation
 
-TODO
+### Overview
+
+Routing intent is placed on objects as JSON properties. A simple selector syntax can be used to
+refer to pins on a chip via a string e.g. `U1.pin3`. These properties can be integrated
+into XML (for tscircuit), JSON (for Simple Route JSON or [Circuit JSON](https://github.com/tscircuit/circuit-json)) or custom DSLs and
+libraries. All concepts are portable to different DSLs or libraries.
+
+Netlist information is captured separately and is not relevant to routing intent.
+
+### Bus Annotation
+
+#### Basic Usage
+
+```json
+{
+  "buses": [
+    {
+      // Can be non-exhaustive, the pin implies the trace or net 
+      "pins": ["U1.pin3", "U1.pin4", "U1.pin5", "U1.pin6"]
+    }
+  ]
+}
+```
+
+#### Differential Pairs
+
+```json
+
+```
+
+
+
+
+
