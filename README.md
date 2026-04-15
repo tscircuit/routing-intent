@@ -101,6 +101,7 @@ The following table lists all geometric trace hints that are accepted:
 | Trace Hint Type | Description |
 | ------ | ---- |
 | `trace_should_pass_near_point` | Trace should pass near a point |
+| `trace_should_avoid_point` | Trace should avoid a point |
 | `trace_should_be_near_path` | Trace should be near a path |
 
 - `point` uses `x`, `y` and layer. [example `layer` enum](https://github.com/tscircuit/circuit-json/blob/main/src/pcb/properties/layer_ref.ts)
@@ -116,8 +117,8 @@ The following table lists all geometric trace hints that are accepted:
       "hint_type": "trace_should_pass_near_point",
       "pin": "U1.pin1",
       "point": { "x": "30mm", y: "20mm", layer: "top" },
-      "close_enough_distance": "2mm",
-      "too_far_distance": "10mm",
+      "recommended_distance": "2mm",
+      "max_distance": "10mm",
       "required": false,
       "weak": true
     }
