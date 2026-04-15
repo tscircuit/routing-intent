@@ -68,11 +68,22 @@ composed a several sets of differential pairs. Again, we use a single pin refere
 {
   "buses": [
     {
-      "name": "U1_USB",
+      "name": "HDMI",
       "differentialPairPins": [
-        ["U1.USB1_DP", "U1.USB1_DM"],
-        ["U1.USB2_DP", "U1.USB2_DM"]
+        ["HDMI.TMDS2_P", "HDMI.TMDS2_N"],
+        ["HDMI.TMDS1_P", "HDMI.TMDS1_N"],
+        ["HDMI.TMDS0_P", "HDMI.TMDS0_N"],
+        ["HDMI.TMDS_CLK_P", "HDMI.TMDS_CLK_N"]
       ],
+      "pins": [
+        "HDMI.CEC",
+        "HDMI.HEAC_P",
+        "HDMI.DDC_SCL",
+        "HDMI.DDC_SDA",
+        "HDMI.HPD",
+        "HDMI.PWR_5V",
+        "HDMI.GND"
+      ]
     }
   ]
 }
