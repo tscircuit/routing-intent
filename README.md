@@ -89,6 +89,11 @@ composed a several sets of differential pairs. Again, we use a single pin refere
 }
 ```
 
+Omitted (for now)
+- `intra_pair_skew`
+- `inter_pair_skew`
+- `length_match_tolerance`
+
 ### Geometric Trace Hints
 
 The following table lists all geometric trace hints that are accepted:
@@ -102,13 +107,14 @@ The following table lists all geometric trace hints that are accepted:
 - X/Y coordiates are from "board origin"
 - Required means the autorouter must obey the constraint
 - Weak means the autorouter should prefer to drop the constraint early, or still explore outside of it
+- pin can be used instead of trace identifier here. To avoid any opinions on netlist representation we'll avoid introducing a trace identifier.
 
 ```json
 {
   "trace_hints": [
     {
       "hint_type": "trace_should_pass_near_point",
-      "trace": "U1.pin1->U2.pin2",
+      "pin": "U1.pin1",
       "point": { "x": "30mm", y: "20mm", layer: "top" },
       "close_enough_distance": "2mm",
       "too_far_distance": "10mm",
